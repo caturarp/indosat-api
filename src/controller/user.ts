@@ -1,4 +1,5 @@
-import { Request, Response } from "express"
+import { NextFunction, Request, Response } from "express"
+import Role from "../model/Role";
 import User from "../model/User";
 export const userController = {
     getUser: async (req: Request, res: Response) => {
@@ -15,7 +16,9 @@ export const userController = {
             console.log('Error:', e);
         }
     },
-    postUser: async (req: Request, res: Response) => {
-
+    getUserDetails: async (req: Request, res: Response, next: NextFunction) => {
+        User.findAll({ include: [Role] })
+            .then(users => res.json(users))
+            .catch(next)
     }
 }

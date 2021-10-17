@@ -18,3 +18,4 @@ export const users = Router();
 // }
 // )
 users.get('/', userController.getUser);
+users.get('/all', userController.getUserDetails);
