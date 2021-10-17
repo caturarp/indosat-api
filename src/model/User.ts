@@ -1,16 +1,17 @@
-import { PrimaryKey, Table, Column, Model, Scopes, BelongsTo, ForeignKey } from "sequelize-typescript";
+import { PrimaryKey, Table, Column, Model, Scopes, BelongsTo, ForeignKey, AutoIncrement } from "sequelize-typescript";
 import Role from "./Role";
 
-@Table({tableName: "users", schema: "public"})
+@Table({ tableName: "users", schema: "public" })
 export default class User extends Model<User> {
 
 	@PrimaryKey
+	@AutoIncrement
 	@Column
 	id!: bigint;
-    
+
 	@Column
 	name!: string;
-    
+
 	@Column
 	username!: string;
 
@@ -20,10 +21,10 @@ export default class User extends Model<User> {
 	@Column
 	mobilenumber!: string;
 
-    @ForeignKey(() => Role)
+	@ForeignKey(() => Role)
 	@Column
-    role_id?: number
+	role_id?: number
 
-    @BelongsTo(()=> Role)
+	@BelongsTo(() => Role)
 	role?: Role;
 }

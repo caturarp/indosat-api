@@ -9,11 +9,11 @@ import { Sequelize } from 'sequelize-typescript';
 // const port = process.env.DB_PORT || 9951
 
 export const sequelize = new Sequelize({
-  database: 'Indosat',
+  database: 'indosat',
   host: 'localhost',
   dialect: 'postgres',
   username: 'postgres',
   password: 'root',
-  port: 9951,
+  port: 5432,
   models: [__dirname + '/model'] // or [Player, Team],
 })
