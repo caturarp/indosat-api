@@ -9,7 +9,8 @@ import { notFoundHandler } from "./middleware/not-found.middleware";
 import { sequelize } from './instance/sequelize';
 import { users } from "./routes/users"
 import { roles } from "./routes/roles"
-
+import { methodologies } from "./routes/methodologies"
+import { cards } from "./routes/cards"
 
 dotenv.config();
 
@@ -32,6 +33,9 @@ app.use(express.json());
 app.use("/api/menu/items", itemsRouter)
 app.use("/users", users)
 app.use("/roles", roles)
+// app.use("/methodologies", methodologies)
+// app.use("/cards", cards)
+// app.use("/boards", boards) misstep, supposed to methodology-card-list-board
 app.use("/", (req, res) => {
     res.sendStatus(200)
 })

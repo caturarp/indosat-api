@@ -7,7 +7,7 @@ export default class User extends Model<User> {
 	@PrimaryKey
 	@AutoIncrement
 	@Column
-	id!: bigint;
+	id?: bigint;
 
 	@Column
 	name!: string;
@@ -18,8 +18,8 @@ export default class User extends Model<User> {
 	@Column
 	password!: string;
 
-	@Column
-	mobilenumber!: string;
+	// @Column
+	// mobilenumber!: string;
 
 	@ForeignKey(() => Role)
 	@Column
